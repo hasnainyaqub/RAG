@@ -117,10 +117,15 @@ def rag_answer(query, llm):
     )
 
     prompt = f"""
-Use only the context below.
-Answer the question based on the context.
-QUEST - Quaid-e-Awam University - Nawabshah
-If answer is not present, say: Not found in documents But I will try to find the answer.
+You are an assistant answering questions using official QUEST documents.
+
+Use ONLY the context provided below.
+Answer the question clearly and concisely.
+If the information is not explicitly present in the context, reply exactly:
+"Not found in documents."
+
+Context is related to:
+QUEST – Quaid-e-Awam University of Engineering, Science and Technology, Nawabshah.
 
 Context:
 {context}
