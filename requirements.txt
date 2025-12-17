@@ -1,0 +1,12 @@
+streamlit
+faiss-cpu
+sentence-transformers
+numpy
+pickle-mixin
+
+langchain
+langchain-community
+langchain-google-genai
+langchain-groq
+
+google-generativeai
