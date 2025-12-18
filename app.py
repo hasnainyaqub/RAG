@@ -41,9 +41,9 @@ def retrieve(query, k=5):
 # ----------------------------
 # Streamlit UI
 # ----------------------------
-st.set_page_config(page_title="PDF RAG App", layout="wide")
+st.set_page_config(page_title="QUEST RAG App", layout="wide")
 
-st.title("📄 RAG PDF Assistant")
+st.title("📄 QUEST RAG Assistant")
 
 st.sidebar.header("Model Settings")
 
@@ -80,7 +80,7 @@ st.sidebar.markdown("### API Sources")
 st.sidebar.markdown(
     "Recommended to use **OpenRouter API** with **deepseek/deepseek-r1** for best results. \n"
     "- **OpenRouter API**  \n"
-    "https://openrouter.ai/console/api-keys"
+    "https://openrouter.ai/settings/keys"
 )
 
 st.sidebar.markdown(
