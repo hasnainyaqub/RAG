@@ -6,7 +6,6 @@ pickle-mixin
 
 langchain
 langchain-community
-langchain-google-genai
 langchain-groq
 
-google-generativeai
+langchain-openai

@@ -6,7 +6,7 @@ import numpy as np
 
 from sentence_transformers import SentenceTransformer
 
-from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_openai import ChatOpenAI
 from langchain_groq import ChatGroq
 
 
@@ -49,28 +49,28 @@ st.sidebar.header("Model Settings")
 
 provider = st.sidebar.selectbox(
     "Select Provider",
-    ["Google Gemini", "Groq"]
+    ["OpenRouter", "Groq"]
 )
 
 model_name = None
 
-if provider == "Google Gemini":
+if provider == "OpenRouter":
     model_name = st.sidebar.selectbox(
         "Select Model",
         [
-            "gemini-1.5-pro",
-            "gemini-2.0-flash",
-            "gemini-2.5-flash"
+            "deepseek/deepseek-r1",
+            "xwin-13b-instruct",
+            "gpt-neox-20b-instruct"
         ]
     )
-    api_key = st.sidebar.text_input("Google API Key", type="password")
+    api_key = st.sidebar.text_input("OpenRouter API Key", type="password")
 
 elif provider == "Groq":
     model_name = st.sidebar.selectbox(
         "Select Model",
         [
             "llama-3.3-70b-versatile",
-            "meta-llama/llama-4-maverick-17b-128e-instruct"
+            # "meta-llama/llama-4-maverick-17b-128e-instruct"
         ]
     )
     api_key = st.sidebar.text_input("Groq API Key", type="password")
@@ -78,8 +78,9 @@ elif provider == "Groq":
 st.sidebar.markdown("### API Sources")
 
 st.sidebar.markdown(
-    "- **Google Gemini API**  \n"
-    "https://ai.google.dev/"
+    "Recommended to use **OpenRouter API** with **deepseek/deepseek-r1** for best results. \n"
+    "- **OpenRouter API**  \n"
+    "https://openrouter.ai/console/api-keys"
 )
 
 st.sidebar.markdown(
@@ -91,10 +92,13 @@ st.sidebar.markdown(
 # Load LLM dynamically
 # ----------------------------
 def load_llm(provider, model_name, api_key):
-    if provider == "Google Gemini":
-        os.environ["GOOGLE_API_KEY"] = api_key
-        return ChatGoogleGenerativeAI(
-            model=model_name,
+
+    if provider == "OpenRouter":
+        os.environ["OPENROUTER_API_KEY"] = api_key
+        return ChatOpenAI(
+            model="deepseek/deepseek-r1",
+            base_url="https://openrouter.ai/api/v1",
+            api_key=os.environ["OPENROUTER_API_KEY"],
             temperature=0
         )
 
