@@ -54,18 +54,8 @@ provider = st.sidebar.selectbox(
 
 model_name = None
 
-if provider == "OpenRouter":
-    model_name = st.sidebar.selectbox(
-        "Select Model",
-        [
-            "deepseek/deepseek-r1",
-            "xwin-13b-instruct",
-            "gpt-neox-20b-instruct"
-        ]
-    )
-    api_key = st.sidebar.text_input("OpenRouter API Key", type="password")
 
-elif provider == "Groq":
+if provider == "Groq":
     model_name = st.sidebar.selectbox(
         "Select Model",
         [
@@ -80,6 +70,16 @@ elif provider == "Groq":
     )
     api_key = st.sidebar.text_input("Groq API Key", type="password")
 
+elif provider == "OpenRouter":
+    model_name = st.sidebar.selectbox(
+        "Select Model",
+        [
+            "deepseek/deepseek-r1",
+            "xwin-13b-instruct",
+            "gpt-neox-20b-instruct"
+        ]
+    )
+    api_key = st.sidebar.text_input("OpenRouter API Key", type="password")
 st.sidebar.markdown("### API Sources")
 
 st.sidebar.markdown(
@@ -89,6 +89,7 @@ st.sidebar.markdown(
 )
 
 st.sidebar.markdown(
+    "Recommended to use **Groq API** with **gpt-oss-120b** for best results. \n"
     "- **Groq API**  \n"
     "https://console.groq.com/keys"
 )
