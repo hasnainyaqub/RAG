@@ -1,14 +1,15 @@
+import json
 import streamlit as st
 import os
 import pickle
 import faiss
 import numpy as np
+import json
 
 from sentence_transformers import SentenceTransformer
 
 from langchain_openai import ChatOpenAI
 from langchain_groq import ChatGroq
-
 
 # ----------------------------
 # Load FAISS + metadata
@@ -74,11 +75,16 @@ elif provider == "Groq":
             "openai/gpt-oss-20b",
             "groq/compound",
             "groq/compound-mini",
-            "llama-3.3-70b-versatile",
-           
+            "llama-3.3-70b-versatile"
         ]
     )
-    api_key = st.sidebar.text_input("Groq API Key", type="password")
+
+    api_key = st.secrets['GROQ_API_KEY']
+
+    headers = {
+        "authorization": f"Bearer {api_key}",
+        "content-type": "application/json"
+    }
 
 st.sidebar.markdown("### API Sources")
 
