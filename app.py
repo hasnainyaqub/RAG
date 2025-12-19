@@ -70,7 +70,10 @@ elif provider == "Groq":
         "Select Model",
         [
             "llama-3.3-70b-versatile",
-            # "meta-llama/llama-4-maverick-17b-128e-instruct"
+            "meta-llama/llama-4-maverick-17b-128e-instruct",
+            "llama-3.1-8b-instant",
+            "meta-llama/llama-guard-4-12b"
+
         ]
     )
     api_key = st.sidebar.text_input("Groq API Key", type="password")
