@@ -49,7 +49,7 @@ st.sidebar.header("Model Settings")
 
 provider = st.sidebar.selectbox(
     "Select Provider",
-    ["OpenRouter", "Groq"]
+    ["Groq", "OpenRouter"]
 )
 
 model_name = None
