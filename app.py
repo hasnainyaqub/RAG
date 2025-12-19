@@ -70,11 +70,17 @@ elif provider == "Groq":
         "Select Model",
         [
             "llama-3.3-70b-versatile",
+            "llama3-8b-8192",
             "meta-llama/llama-4-maverick-17b-128e-instruct",
             "groq/compound",
+            "groq/compound-mini",
             "openai/gpt-oss-120b",
             "openai/gpt-oss-safeguard-20b",
-            "openai/gpt-oss-20b"
+            "openai/gpt-oss-20b",
+            "qwen/qwen3-32b",
+            "moonshotai/kimi-k2-instruct-0905",
+            "mixtral-8x7b-32768"
+
 
         ]
     )
